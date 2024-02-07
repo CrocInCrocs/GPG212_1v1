@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Manager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
 
-    float distance = 1.0f;
+    public float speed = 1.0f;
+    public KeyCode forwardKey;
+    public KeyCode rightKey;
+    public KeyCode leftKey;
+    public KeyCode backKey;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,36 +19,29 @@ public class Player1Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Time = 1.0f; 
 
-        if(Input.GetKeyDown("w"))
+        if(Input.GetKeyDown(forwardKey))
         {
-            transform.Translate(Vector3.forward * distance);
-            Debug.Log($"This fired");
+            transform.Translate(Vector3.forward * speed);
+           
         }
 
-        if(Input.GetKeyDown("d"))
+        if(Input.GetKeyDown(rightKey))
         {
-            transform.Translate(Vector3.right * distance);
-             Debug.Log($"This fired");
+            transform.Translate(Vector3.right * speed);
+            
         }
 
-        if(Input.GetKeyDown("a"))
+        if(Input.GetKeyDown(leftKey))
         {
-            transform.Translate(Vector3.left * distance);
-             Debug.Log($"This fired");
+            transform.Translate(Vector3.left * speed);
+            
         }
         
-        if(Input.GetKeyDown("s"))
+        if(Input.GetKeyDown(backKey))
         {
-            transform.Translate(Vector3.forward * -distance);
+            transform.Translate(Vector3.forward * -speed);
         }
     }
 
-    public void PlayerMovement()
-    {
-       
-     transform.Translate(Vector3.forward * Time.deltaTime);
-      
-    }
 }
